@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/zchryst/general_assembly_WAKZ/issues"
   },
-  "homepage": "https://github.com/zchryst/general_assembly_WAKZ#readme"
+  "homepage": "https://github.com/zchryst/general_assembly_WAKZ#readme",
+  "dependencies": {
+    "d3": "^4.8.0"
+  }
 }
