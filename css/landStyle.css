@@ -1,0 +1,169 @@
+*{
+  padding: 0px;
+  margin: 0px;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  margin: 0px;
+}
+
+#logo{
+  width: 50px;
+  height: 50px;
+}
+
+#brand-name{
+  font-family: 'Work Sans', sans-serif;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-left: 30px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+
+}
+
+nav > li{
+  list-style:none;
+  margin-left: 25px;
+}
+
+nav > li:last-child{
+  font-weight: bold;
+  justify-content: : flex-end;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover{
+  color: rgba(44, 62, 80,1.0);
+}
+
+article {
+  margin-top: 70px;
+}
+
+
+
+#hero{
+  background-image: url('../media/hero-img.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #65B7CC;
+  min-height: 520px;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 3px;
+}
+
+#hero > h3 {
+  padding-top: 30px;
+  color: white;
+}
+
+#conf-container{
+  display: flex;
+  justify-content: space-around;
+}
+
+#conf-side-1,#conf-side-2,#conf-side-3{
+  padding-top: 50px;
+  padding-bottom: 60px;
+  max-width: 200px;;
+}
+
+.conf-img{
+  padding 5px;
+  display: block;
+  width: 50px;
+}
+
+.desc{
+  font-size: 12px;
+}
+
+#conf-container-2{
+  background-image: url('../media/conf-background-img.png');
+  background-size: 600px 550px;
+  height: 550px;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#conf-container-2 > p {
+  width: 280px;
+  height: 380px;
+  padding: 30px;
+  background-color: white;
+  font-weight: lighter;
+  letter-spacing: 2px;
+  background-color: rgba(255,255,255,1)
+}
+
+#conf-container-2 > p:last-child{
+  margin-right: 90px;
+}
+
+#conf-2-img{
+  padding: 35px;
+  width: 300px;
+}
+
+footer{
+  background-color: rgba(149, 165, 166,1.0);
+  color: white;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+#footer-list{
+  display: inline-flex;
+  justify-content: flex-start;
+}
+
+.footer-ul{
+  list-style: none;
+  padding: 20px
+}
+
+.footer-ul > li:first-child{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.footer-ul > li:first-child:hover {
+  text-decoration: none;
+}
+
+.footer-ul > li{
+  padding: 2px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.footer-ul > li:hover{
+  text-decoration: underline;
+}
+
+.footer-ul > a{
+  color: white;
+}
+
+.socialM{
+  height: 30px;
+}
