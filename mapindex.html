@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/map-style.css">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAQwSV_8lxj1jesWeXrfH8nH7jc-hFjj8U&libraries=visualization"> </script>
+    <script src="heatMap.js"></script>
+  </head>
+
+  <body onload="initialize()">
+
+    <div id="floating-panel">
+     <button onclick="changeGradient()">Change gradient</button>
+     <button onclick="changeRadius()">Change radius</button>
+     <button onclick="changeOpacity()">Change opacity</button>
+    </div>
+
+    <div id="map_canvas">
+
+    </div>
+
+  </body>
+</html>
