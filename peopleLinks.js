@@ -1,10 +1,14 @@
 console.log('hello world');
 
-var access_token = '35575e4e442a3e27402c7e342a78552e'
+catsVsDogs = {
+  cat: 0,
+  dog: 0
+}
 
-$.ajax({
-  api: 'https://api.meetup.com/2/members?offset=0&format=json&group_urlname=Machine-Learning-AI-Meetup&photo-host=public&page=20&order=name&access_token=' + access_token,
-  method: 'get'
-}).done(function(results) {
-  console.log(results);
-});
+_.map(survey, function(person) {
+  if (person.dogs_vs_cats == 'Cats') {
+    catsVsDogs.cat++
+  } else if (person.dogs_vs_cats == 'Dogs') {
+    catsVsDogs.dog++
+  }
+})
