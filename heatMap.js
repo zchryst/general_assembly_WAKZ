@@ -7,7 +7,7 @@ function initialize() {
    center: {lat: -37.8, lng: 144.95},
    zoomControl: true,
    scaleControl: true,
-   streetViewControl: false,
+   streetViewControl: false
 
   }
 
