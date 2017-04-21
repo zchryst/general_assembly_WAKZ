@@ -1,3 +1,14 @@
 console.log('hello world');
 
-var access_token = '35575e4e442a3e27402c7e342a78552e'
+catsVsDogs = {
+  cat: 0,
+  dog: 0
+}
+
+_.map(survey, function(person) {
+  if (person.dogs_vs_cats == 'Cats') {
+    catsVsDogs.cat++
+  } else if (person.dogs_vs_cats == 'Dogs') {
+    catsVsDogs.dog++
+  }
+})
