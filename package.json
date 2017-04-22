@@ -1,0 +1,26 @@
+{
+  "name": "general_assembly_WAKZ",
+  "version": "1.0.0",
+  "description": "",
+  "main": "circleMap.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zchryst/general_assembly_WAKZ.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zchryst/general_assembly_WAKZ/issues"
+  },
+  "homepage": "https://github.com/zchryst/general_assembly_WAKZ#readme",
+  "devDependencies": {
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.2"
+  }
+}
