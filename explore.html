@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/main.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://rawgithub.com/misoproject/d3.chart/master/d3.chart.min.js"></script>
+  <!-- <script src="https://rawgithub.com/knownasilya/d3.chart.pie/master/dist/pie.js"></script> -->
+  <script src="https://rawgithub.com/knownasilya/d3.chart.legend/master/dist/legend.js"></script>
+
+  <script src="2016StackOverflowSurvey.json"></script>
+  <script src="aniko/generate_venn_data.js"></script>
+  <link rel="stylesheet" href="style.css">
+
   <title>WDI.Conf Data</title>
 </head>
 <body>
@@ -18,8 +29,8 @@
     </div>
     <table>
       <tr id='nav-table'>
-        <td>Collision Detection</td>
-        <td>Connection Map</td>
+        <td>Programming Languages 2016</td>
+        <td>Overlap Between Languages</td>
         <td>Force-Directed States</td>
       </tr>
     </table>
@@ -27,8 +38,86 @@
       <img src="media/data-protection-96.png" alt="" class='daxta-icon'>
     </span>
   </div>
-  <div id='collection-detection'></div>
-  <div id='connection-map'></div>
+  <div id='donut'></div>
+  <div id='venn'></div>
   <div id='force-redirect-state'></div>
+
+  <script src="aniko/venn_library/venn.js" charset="utf-8"></script>
+  <script src="aniko/pie_library/pie.js" charset="utf-8"></script>
+  <!-- venn diagram -->
+    <script>
+
+
+    var chart = venn.VennDiagram()
+    d3.select("#venn").datum(venn_sets).call(chart);
+
+    // draw venn diagram
+    var div = d3.select("#venn")
+    div.datum(venn_sets).call(venn.VennDiagram());
+    // add a tooltip
+  var tooltip = d3.select("body").append("div")
+      .attr("class", "venntooltip");
+
+  // add listeners to all the groups to display tooltip on mouseover
+  div.selectAll("g")
+      .on("mouseover", function(d, i) {
+          // sort all the areas relative to the current item
+          venn.sortAreas(div, d);
+
+          // Display a tooltip with the current size
+          tooltip.transition().duration(400).style("opacity", .9);
+          tooltip.text(d.size + " users");
+
+          // highlight the current path
+          var selection = d3.select(this).transition("tooltip").duration(400);
+          selection.select("path")
+              .style("stroke-width", 3)
+              .style("fill-opacity", d.sets.length == 1 ? .3 : .1)
+              .style("stroke-opacity", 1);
+      })
+
+      .on("mousemove", function() {
+          tooltip.style("left", (d3.event.pageX) + "px")
+                 .style("top", (d3.event.pageY - 28) + "px");
+      })
+
+      .on("mouseout", function(d, i) {
+          tooltip.transition().duration(400).style("opacity", 0);
+          var selection = d3.select(this).transition("tooltip").duration(400);
+          selection.select("path")
+              .style("stroke-width", 0)
+              .style("fill-opacity", d.sets.length == 1 ? .7 : .0)
+              .style("stroke-opacity", 0);
+      });
+    </script>
+
+
+
+
+  <!-- donut chart -->
+  <script>
+  pie = d3.select('#donut')
+    .append('svg')
+      .attr('width', 900)
+      .attr('height', 500)
+      .chart('Pie', {
+        width: 900,
+        height: 900,
+        radius: 200,
+        donutHole: {
+          radius: 100,
+          color: 'white'
+        },
+        labelTemplate: '{label}: {value}',
+        legend: {
+          title: 'Programming Languages 2016'
+        }
+      });
+
+  pie.draw(donut_sets);
+
+  </script>
+
+
 </body>
 </html>
