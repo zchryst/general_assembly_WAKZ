@@ -83,7 +83,7 @@ table, tr,td{
 }
 
 #donut,#venn,#force-redirect-state{
-  padding: 30px;
+  padding: 50px;
 }
 
 #donut{
@@ -91,12 +91,16 @@ table, tr,td{
   background: -webkit-linear-gradient(left, #CFDEF3, #E0EAFC);
   background: -o-linear-gradient(left, #CFDEF3, #E0EAFC);
   background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+  text-align: center;
+  min-height: 600px;
 }
 
 #venn{
   background: #abbaab; /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #abbaab, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #abbaab, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  text-align: center;
+  min-height: 600px;
 }
 
 td > a {
