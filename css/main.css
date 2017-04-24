@@ -81,3 +81,71 @@ table, tr,td{
 @keyframes rotate {
   100% { transform:rotate(-360deg); }
 }
+
+#donut,#venn,#force-redirect-state{
+  padding: 30px;
+}
+
+#donut{
+  background: #E0EAFC;
+  background: -webkit-linear-gradient(left, #CFDEF3, #E0EAFC);
+  background: -o-linear-gradient(left, #CFDEF3, #E0EAFC);
+  background: linear-gradient(to right, #CFDEF3, #E0EAFC);
+}
+
+#venn{
+  background: #abbaab; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #abbaab, #ffffff); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #abbaab, #ffffff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+td > a {
+  text-decoration: none;
+  color: white;
+}
+
+footer{
+  background-color: rgba(149, 165, 166,1.0);
+  color: white;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+#footer-list{
+  display: inline-flex;
+  justify-content: flex-start;
+}
+
+.footer-ul{
+  list-style: none;
+  padding: 20px
+}
+
+.footer-ul > li:first-child{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.footer-ul > li:first-child:hover {
+  text-decoration: none;
+}
+
+.footer-ul > li{
+  padding: 2px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.footer-ul > li:hover{
+  text-decoration: underline;
+}
+
+.footer-ul > a{
+  color: white;
+}
+
+.socialM{
+  height: 30px;
+}
