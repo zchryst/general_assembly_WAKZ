@@ -5,38 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://rawgithub.com/misoproject/d3.chart/master/d3.chart.min.js"></script>
+  <!-- <script src="https://rawgithub.com/knownasilya/d3.chart.pie/master/dist/pie.js"></script> -->
+  <script src="https://rawgithub.com/knownasilya/d3.chart.legend/master/dist/legend.js"></script>
+
+  <script src="2016StackOverflowSurvey.json"></script>
+  <script src="generate_venn_data.js"></script>
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 <body>
+  <div id="donut"></div>
   <div id="venn"></div>
   <script src="venn_library/venn.js" charset="utf-8"></script>
+  <script src="pie_library/pie.js" charset="utf-8"></script>
 
+<!-- venn diagram -->
   <script>
-
-//           {"sets": [0], "label": "Radiohead", "size": 77348},
-  var sets = [ {sets: ['A'], size: 12},
-               {sets: ['B'], size: 12},
-               {sets: ['C'],  "label": "CSS", size: 34},
-               {sets: ['D'], "label": "Javascript", size: 50},
-               {sets: ['E'], size: 20},
-               {sets: ['F'], size: 12},
-               {sets: ['G'], size: 34},
-               {sets: ['H'], size: 50},
-               {sets: ['I'], size: 20},
-               {sets: ['A','B'], size: 2},
-               {sets: ['A','C'], size: 4},
-               {sets: ['C','E'], size: 10},
-               {sets: ['B','D'], size: 5}];
 
 
   var chart = venn.VennDiagram()
-  d3.select("#venn").datum(sets).call(chart);
+  d3.select("#venn").datum(venn_sets).call(chart);
 
   // draw venn diagram
   var div = d3.select("#venn")
-  div.datum(sets).call(venn.VennDiagram());
+  div.datum(venn_sets).call(venn.VennDiagram());
   // add a tooltip
 var tooltip = d3.select("body").append("div")
     .attr("class", "venntooltip");
@@ -73,5 +67,94 @@ div.selectAll("g")
             .style("stroke-opacity", 0);
     });
   </script>
+
+
+
+
+<!-- donut chart -->
+<script>
+pie = d3.select('#donut')
+  .append('svg')
+    .attr('width', 900)
+    .attr('height', 500)
+    .chart('Pie', {
+      width: 900,
+      height: 900,
+      radius: 200,
+      donutHole: {
+        radius: 100,
+        color: 'white'
+      },
+      labelTemplate: '{label}: {value}',
+      legend: {
+        title: 'Programming Languages 2016'
+      }
+    });
+
+pie.draw(donut_sets);
+
+//
+// var width = 960,
+//     height = 500,
+//     radius = Math.min(width, height) / 2;
+//
+// var color = d3.scale.ordinal()
+//     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+//
+// var arc = d3.svg.arc()
+//     .outerRadius(radius - 10)
+//     .innerRadius(radius - 70);
+//
+// var pie = d3.layout.pie()
+//     .sort(null)
+//     .value(function(d) { return d.size; });
+//
+// var svg = d3.select("#donut").append("svg")
+//     .attr("width", width)
+//     .attr("height", height)
+//   .append("g")
+//     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+//
+// // d3.csv("data.csv", type, function(error, data) {
+// //   if (error) throw error;
+//
+//   var g = svg.selectAll(".arc")
+//       .data(pie(sets))
+//     .enter().append("g")
+//       .attr("class", "arc");
+//
+//   g.append("path")
+//       .attr("d", arc)
+//       .style("fill", function(d) { return color(d.sets.label); });
+//
+//   g.append("text")
+//       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+//       .attr("dy", ".35em")
+//       .text(function(d) { return d.sets.label; });
+// //});
+//
+// function type(d) {
+//   d.size = +d.size;
+//   return d;
+// }
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
